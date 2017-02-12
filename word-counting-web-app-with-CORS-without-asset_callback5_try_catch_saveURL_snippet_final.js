@@ -203,12 +203,14 @@ app.post('/findTopWords', function(request, response) {
     snippet = output;
     //remove \n
     snnipet_String = snippet.replace(/\r?\n|\r/g, " ");
-
-    ///save URL and snippet into a table
+    //console.log(URL);
+    if (URL){
+    //save URL and snippet into a table
     saveURL_snippet(URL, snnipet_String, function(responce){
         console.log(response);
         }
-    );  
+      ); 
+    }
     response.send(output);
   });
 })
